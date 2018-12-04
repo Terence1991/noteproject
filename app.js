@@ -13,7 +13,15 @@ console.log("this is yargs", argv)
 
 if(command === 'add') {
   console.log("adding new note")
-  notes.addNote(argv.title,argv.body)
+  const note = notes.addNote(argv.title,argv.body)
+  if (note) {
+    console.log("note created")
+    console.log("---------")
+    console.log("title:" , note.title)
+    console.log("Body:" , note.body)
+  } else {
+    console.log("note title taken")
+  }
 } else if (command === 'list') {
   console.log("listting alll notes")
   notes.getAll()
