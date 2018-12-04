@@ -16,10 +16,13 @@ if(command === 'add') {
   notes.addNote(argv.title,argv.body)
 } else if (command === 'list') {
   console.log("listting alll notes")
+  notes.getAll()
 } else  if (command === 'read'){
-  console.log(" reading note")
+  console.log("reading note")
+  notes.read(argv.title)
 } else if (command === 'delete') {
   console.log(' deleteing note')
+  notes.deleteNote(argv.title)
 } else {
   console.log("invalid command")
 }
