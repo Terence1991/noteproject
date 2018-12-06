@@ -46,6 +46,12 @@ const read = (title, body) => {
 
 const deleteNote = (title, body) => {
   console.log("delelting notes", title)
+  const notes = fetchNotes();
+  ///
+  const  filteredNotes = notes.filter((note) => {
+    return note.title !== title
+    saveNotes(filteredNotes)
+ })
 }
 
 module.exports = {
