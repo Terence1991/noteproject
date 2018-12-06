@@ -44,14 +44,14 @@ const read = (title, body) => {
   console.log("reading notes", title)
 }
 
-const deleteNote = (title, body) => {
+const deleteNote = (title) => {
   console.log("delelting notes", title)
   const notes = fetchNotes();
   ///
-  const  filteredNotes = notes.filter((note) => {
-    return note.title !== title
+  const  filteredNotes = notes.filter((note) =>  note.title !== title)
     saveNotes(filteredNotes)
- })
+    
+  return notes.length !== filteredNotes.length 
 }
 
 module.exports = {

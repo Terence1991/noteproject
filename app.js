@@ -30,7 +30,9 @@ if(command === 'add') {
   notes.read(argv.title)
 } else if (command === 'delete') {
   console.log(' deleteing note')
-  notes.deleteNote(argv.title)
+  const noteRemoved = notes.deleteNote(argv.title)
+  var message = noteRemoved ? "note was remeoved" : " note not found"
+  console.log(message);
 } else {
   console.log("invalid command")
 }
