@@ -4,14 +4,21 @@ const fs = require("fs");
 const notes = require("./notes.js")
 const _ = require("lodash")
 const yargs = require('yargs')
+const title  = { describe: 'title of note', demmand: true, alias: "t"}
+const body = { describe: "content of body", demmand: true, allias: "q" }
 
 const argv = yargs
 .command('add', 'add a new note', {
-title: {
-  describe: 'title of note',
-  demmand: true,
-  alias: "t"
-}
+title: title,
+body: body,
+})
+.command("read", "reading all notes", {})
+.command("list", "listing all notes", {
+  title: title,
+})
+.command("delete", "remove note", {
+  title: title
+
 })
 .help()
 .argv;
