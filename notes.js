@@ -37,7 +37,7 @@ if(duplicateNotes.length === 0) {
 }
 
 const getAll = (title, body) => {
-console.log("getting all notes",)
+  return fetchNotes();
 }
 
 const read = (title, body) => {
@@ -57,7 +57,7 @@ const deleteNote = (title) => {
   return notes.length !== filteredNotes.length 
 }
 
-const logNote = () => {
+const logNote = (note) => {
   console.log("--------")
   console.log(`title: ${note.title}`)
   console.log(`body'; ${note.body}`)

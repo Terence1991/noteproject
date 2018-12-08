@@ -5,7 +5,16 @@ const notes = require("./notes.js")
 const _ = require("lodash")
 const yargs = require('yargs')
 
-const argv = yargs.argv;
+const argv = yargs
+.command('add', 'add a new note', {
+title: {
+  describe: 'title of note',
+  demmand: true,
+  alias: "t"
+}
+})
+.help()
+.argv;
 const command = process.argv[2]
 console.log("command:" , command)
 console.log("process:", process.argv)
@@ -24,7 +33,10 @@ if(command === 'add') {
     console.log("note title taken")
   }
 } else if (command === 'list') {
-  console.log("listting alll notes")
+  const allNotes = notes.getAll()
+  console.log(allNotes)
+  console.log(`printing all notes ${allNotes.length}`)
+  allNotes.forEach((note) => notes.logNote(note))
   notes.getAll()
 } else  if (command === 'read'){
   console.log("reading note")
